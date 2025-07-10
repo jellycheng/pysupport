@@ -27,3 +27,12 @@ def get_random_strV2(random_len: int = 6) -> str:
     for i in range(random_len):
         random_str += chars[_random.randint(0, length)]
     return random_str
+
+def getPlaceholders4List(listData: list) -> str:
+    """
+    获取占位符,返回如 ?,?,?
+    :return:
+    """
+    placeholders = ','.join(['?' for _ in listData])
+    return placeholders
+
