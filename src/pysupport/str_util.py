@@ -1,4 +1,4 @@
-from random import Random
+import random
 
 def get_random_str(random_len: int = 6) -> str:
     """
@@ -9,8 +9,8 @@ def get_random_str(random_len: int = 6) -> str:
     random_str = ''
     chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
     length = len(chars) - 1
-    _random = Random()
-    for i in range(random_len):
+    _random = random.Random()
+    for _ in range(random_len):
         random_str += chars[_random.randint(0, length)]
     return random_str
 
@@ -23,10 +23,18 @@ def get_random_strV2(random_len: int = 6) -> str:
     random_str = ''
     chars = 'AaBbCcDdEeFfGgHhKkMmNnPpQqRrSsTtUuVvWwXxYyZz23456789'
     length = len(chars) - 1
-    _random = Random()
-    for i in range(random_len):
+    _random = random.Random()
+    for _ in range(random_len):
         random_str += chars[_random.randint(0, length)]
     return random_str
+
+def get_random_strV3(l: int=6, base_str:str="") -> str:
+    """
+    生成的随机字符串
+    """
+
+    base_str = base_str or "AaBbCcDdEeFfGgHhKkMmNnPpQqRrSsTtUuVvWwXxYyZz23456789"
+    return "".join(random.choice(base_str) for _ in range(l))
 
 def getPlaceholders4List(listData: list) -> str:
     """
@@ -36,3 +44,5 @@ def getPlaceholders4List(listData: list) -> str:
     placeholders = ','.join(['?' for _ in listData])
     return placeholders
 
+def split_dict_cookie(cookie_dict: dict) -> str:
+    return "; ".join(f"{key}={value}" for key, value in cookie_dict.items())
