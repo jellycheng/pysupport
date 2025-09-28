@@ -16,6 +16,6 @@ def file_put_contents(f: str, data: str)->bool:
     except Exception as e:
       pass
     with open(f, "a+", encoding="utf-8") as file:
-      i = file.write(data + os.linesep)
+      i = file.write(data)
       return i>0
 
