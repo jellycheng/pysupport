@@ -19,3 +19,11 @@ def file_put_contents(f: str, data: str)->bool:
       i = file.write(data)
       return i>0
 
+def fileBinContents(f: str)->bytes:
+  """获取文件内容"""
+  if os.path.isfile(f)==False:
+    return b""
+  with open(f, "rb") as file:
+    data = file.read()
+    return data
+
