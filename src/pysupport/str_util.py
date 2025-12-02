@@ -1,4 +1,4 @@
-import random
+import random,re
 
 def get_random_str(random_len: int = 6) -> str:
     """
@@ -46,3 +46,14 @@ def getPlaceholders4List(listData: list) -> str:
 
 def split_dict_cookie(cookie_dict: dict) -> str:
     return "; ".join(f"{key}={value}" for key, value in cookie_dict.items())
+
+# 判断字符串是否为空
+def isEmpty(s: str) -> bool:
+    return len(s) == 0
+
+# 去掉所有空格（含 \r、\n、空格）
+def trimAll(src: str) -> str:
+    if isEmpty(src):
+        return ""
+    return re.sub(r"[\r\n ]+", "", src)
+
